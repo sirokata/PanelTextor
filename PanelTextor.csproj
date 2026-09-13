@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <Version>0.9.0</Version>
+    <AssemblyName>PanelTextor</AssemblyName>
+    <RootNamespace>PanelTextor</RootNamespace>
+    <Product>PanelTextor</Product>
+    <Authors>sirokata</Authors>
+    <Copyright>Copyright (c) 2026 sirokata</Copyright>
+    <ApplicationIcon>Assets/PanelTextor.ico</ApplicationIcon>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    <DebugType>none</DebugType>
+    <DefaultItemExcludes>$(DefaultItemExcludes);release/**;dist/**;test-output/**;private-dev/**</DefaultItemExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="HarfBuzzSharp" Version="14.2.1.102" />
+    <PackageReference Include="HarfBuzzSharp.NativeAssets.Win32" Version="14.2.1.102" />
+    <EmbeddedResource Include="Data/VerticalOrientation.txt" />
+    <EmbeddedResource Include="Data/UiTranslations.txt" />
+    <EmbeddedResource Include="licenses/*.txt" />
+    <EmbeddedResource Include="LICENSE;TERMS*.md;THIRD_PARTY_NOTICES.md" WithCulture="false" LogicalName="PanelTextor.%(Filename)%(Extension)" />
+    <Resource Include="Assets/PanelTextor.ico" />
+    <None Update="licenses/*.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Update="README*.md;USAGE*.md" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <Target Name="ExcludeDistributionSymbols" AfterTargets="ComputeFilesToPublish">
+    <ItemGroup>
+      <ResolvedFileToPublish Remove="@(ResolvedFileToPublish)" Condition="'%(ResolvedFileToPublish.Extension)' == '.pdb'" />
+    </ItemGroup>
+  </Target>
+</Project>
+
+

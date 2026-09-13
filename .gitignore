@@ -1,0 +1,12 @@
+bin/
+obj/
+dist/
+test-output/
+*.user
+release/
+*.paneltextor.json
+*.polytext.json
+settings.json
+terms-acceptance.txt
+private-dev/
+.vs/

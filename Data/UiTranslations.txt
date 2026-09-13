@@ -1,0 +1,159 @@
+PanelTextor — 多言語テキスト配置|||PanelTextor — Multilingual text layout|||PanelTextor — 多语言文字排版|||PanelTextor — 다국어 텍스트 배치
+画像を追加|||Add images|||添加图片|||이미지 추가
+新規|||New|||新建|||새로 만들기
+開く|||Open|||打开|||열기
+保存|||Save|||保存|||저장
+別名で保存|||Save as|||另存为|||다른 이름으로 저장
+プリセット設定|||Presets|||预设设置|||프리셋 설정
+このページを書き出す|||Export this page|||导出当前页|||현재 페이지 내보내기
+全ページを書き出す|||Export all pages|||导出所有页面|||모든 페이지 내보내기
+JP 日本語|||JP Japanese|||JP 日语|||JP 일본어
+EN English|||EN English|||EN 英语|||EN 영어
+CN 中文|||CN Chinese|||CN 中文|||CN 중국어
+KR 한국어|||KR Korean|||KR 韩语|||KR 한국어
+この言語を表示|||Show this text language|||显示此文字语言|||이 텍스트 언어 표시
+JP を編集中|||Editing JP|||正在编辑 JP|||JP 편집 중
+{0} を編集中|||Editing {0}|||正在编辑 {0}|||{0} 편집 중
+Background:|||Background:|||背景：|||배경:
+画像セットを追加／更新|||Add / update image set|||添加／更新图片集|||이미지 세트 추가 / 업데이트
+対応チェック|||Check matching files|||检查文件匹配|||파일 대응 확인
+画像・文字の比較情報|||Image / text details|||图片／文字比较信息|||이미지 / 텍스트 비교 정보
+画像を追加して作業を開始してください。|||Add images to start working.|||请添加图片以开始编辑。|||이미지를 추가하여 작업을 시작하세요.
+ページ|||Pages|||页面|||페이지
+除外|||Remove|||移除|||제외
+全体表示|||Fit to view|||适应窗口|||전체 보기
+まとめて入力|||Bulk text input|||批量输入文字|||텍스트 일괄 입력
+空行で分割・通常の改行は維持|||Split at blank lines; keep other line breaks|||按空行拆分，保留普通换行|||빈 줄에서 분할하고 일반 줄바꿈은 유지
+空行で分割して追加|||Split and add|||按空行拆分并添加|||빈 줄로 분할하여 추가
+追加後は下の欄で個別に編集できます。|||After adding, edit each block below.|||添加后可在下方单独编辑。|||추가한 후 아래에서 개별 편집할 수 있습니다.
+テキストを選択|||Select text|||选择文字|||텍스트 선택
+選択中のテキスト|||Selected text|||选中的文字|||선택한 텍스트
+{0}件を選択中|||{0} blocks selected|||已选择 {0} 个文字块|||텍스트 {0}개 선택됨
+文字サイズ|||Text size|||字号|||글자 크기
+小|||Small|||小|||작게
+中|||Medium|||中|||중간
+大|||Large|||大|||크게
+文字色|||Text color|||文字颜色|||글자 색상
+文字方向|||Text direction|||文字方向|||글자 방향
+縦書き|||Vertical|||竖排|||세로쓰기
+横書き|||Horizontal|||横排|||가로쓰기
+選択テキストを削除 (Delete)|||Delete selected text (Delete)|||删除选中文字 (Delete)|||선택한 텍스트 삭제 (Delete)
+行間（行送り px）|||Line / column advance (px)|||行／列间距 (px)|||줄 / 열 간격 (px)
+既定|||Default|||默认|||기본값
+0＝言語の設定を使用。改行のあるブロックに反映。|||0 uses the text language preset. Applies to blocks with line breaks.|||0 使用文字语言预设。适用于包含换行的文字块。|||0은 텍스트 언어 설정을 사용합니다. 줄바꿈이 있는 블록에 적용됩니다.
+縦書き：列と列の間隔。0＝言語設定。1列だけでは変化しません。|||Vertical: distance between columns. 0 uses the language preset. No effect on a single column.|||竖排：列与列的距离。0 使用语言预设。单列时无变化。|||세로쓰기: 열 사이의 간격. 0은 언어 설정 사용. 한 열에는 영향이 없습니다.
+横書き：行頭から次の行頭までの距離。0＝言語設定。1行だけでは変化しません。|||Horizontal: distance between line starts. 0 uses the language preset. No effect on a single line.|||横排：相邻行起点之间的距离。0 使用语言预设。单行时无变化。|||가로쓰기: 인접한 줄 시작점 사이의 거리. 0은 언어 설정 사용. 한 줄에는 영향이 없습니다.
+配置済みテキスト|||Placed text|||已放置的文字|||배치된 텍스트
+Ctrl＋クリックで複数選択。一覧ではShiftで範囲選択。Deleteで選択を削除。単独選択でドラッグ移動・編集。座標とサイズは元画像のピクセル基準です。表示OFFでも書き出しには含まれます。|||Ctrl+click to select multiple blocks; Shift selects a range in the list. Delete removes the selection. Select one block to drag or edit it. Positions and sizes use original image pixels. Hidden text is still exported.|||Ctrl+单击可多选；列表中用 Shift 选择范围。Delete 删除所选内容。单选后可拖动或编辑。坐标和尺寸以原图像素为准。隐藏的文字仍会导出。|||Ctrl+클릭으로 다중 선택, 목록에서 Shift로 범위 선택. Delete로 선택 항목 삭제. 하나를 선택하여 드래그하거나 편집하세요. 좌표와 크기는 원본 이미지 픽셀 기준입니다. 숨긴 텍스트도 내보내기에 포함됩니다.
+プリセット設定 — 変更は既存テキストにも反映|||Presets — changes also apply to existing text|||预设设置 — 更改也会应用于现有文字|||프리셋 설정 — 기존 텍스트에도 변경 적용
+言語別フォント・サイズ・縁取り|||Fonts, sizes and outlines by text language|||按文字语言设置字体、字号与描边|||텍스트 언어별 글꼴, 크기, 테두리
+全言語共通のフォント一覧：{0}件（各言語名・ファイル名で表示）|||Shared font list: {0} entries (localized names and filenames)|||所有语言共用字体列表：{0} 项（显示本地名称及文件名）|||모든 언어 공통 글꼴 목록: {0}개 (언어별 이름과 파일명 표시)
+読み込めなかったフォント：\n|||Fonts that could not be loaded:\n|||无法加载的字体：\n|||불러오지 못한 글꼴:\n
+ウェイト（可変フォントの太さ）|||Weight (variable font)|||字重（可变字体粗细）|||굵기 (가변 글꼴)
+フォント本来のwght軸を使います。既定は以前の表示を維持します。|||Uses the font's wght axis. Default preserves the previous appearance.|||使用字体自身的 wght 轴。默认选项保留原有外观。|||글꼴의 wght 축을 사용합니다. 기본값은 이전 표시를 유지합니다.
+このフォントには可変ウェイト軸がありません。別の太さはフォント一覧で選んでください。|||This font has no variable weight axis. Select another weight in the font list.|||此字体没有可变字重轴。请在字体列表中选择其他粗细。|||이 글꼴에는 가변 굵기 축이 없습니다. 글꼴 목록에서 다른 굵기를 선택하세요.
+既定（従来の表示）|||Default (previous appearance)|||默认（原有外观）|||기본값 (이전 표시)
+小 px|||Small px|||小 px|||작게 px
+中 px|||Medium px|||中 px|||중간 px
+大 px|||Large px|||大 px|||크게 px
+縁色 HEX|||Outline HEX|||描边 HEX|||테두리 HEX
+縁幅 px|||Outline px|||描边宽 px|||테두리 폭 px
+横書きの行間 px (0=自動)|||Line advance px (0=auto)|||横排行距 px (0=自动)|||가로 줄 간격 px (0=자동)
+縦書きの行間 em|||Column advance em|||竖排列距 em|||세로 열 간격 em
+共通の文字色（#RRGGBB）|||Shared text colors (#RRGGBB)|||共用文字颜色 (#RRGGBB)|||공통 글자 색상 (#RRGGBB)
+サイズは元画像のpx。文字サイズはピクセル単位で指定します。\nHEXはsRGB。縁幅は外側への太さです。設定は全プロジェクト共通です。\n字間の追加は0。縦の文字送りは1 em。描画方式によって輪郭の見え方が異なります。|||Sizes use original image pixels. Specify text sizes in pixels.\nHEX colors use sRGB. Outline width extends outward. Presets apply to all projects.\nExtra letter spacing is 0; vertical advance is 1 em. Outline appearance depends on the rendering method.|||尺寸以原图像素为准。请以像素为单位指定字号。\nHEX 颜色使用 sRGB。描边向外扩展。设置对所有项目生效。\n附加字距为 0，竖排字距为 1 em。轮廓外观因渲染方式而异。|||크기는 원본 이미지 픽셀 기준입니다. 글자 크기는 픽셀 단위로 지정하세요.\nHEX는 sRGB입니다. 테두리는 바깥쪽으로 확장됩니다. 모든 프로젝트에 공통 적용됩니다.\n추가 자간은 0, 세로 글자 간격은 1 em입니다. 렌더링 방식에 따라 윤곽 표시가 다릅니다.
+設定を保存して反映|||Save and apply presets|||保存并应用设置|||설정 저장 및 적용
+設定を確認してください|||Check settings|||请检查设置|||설정을 확인하세요
+色は #RRGGBB 形式で入力してください。|||Enter colors as #RRGGBB.|||请以 #RRGGBB 格式输入颜色。|||색상을 #RRGGBB 형식으로 입력하세요.
+: 一覧からインストール済みフォントを選択してください。|||: Select an installed font from the list.|||：请从列表中选择已安装的字体。|||: 목록에서 설치된 글꼴을 선택하세요.
+: ウェイトを選び直してください。|||: Select the weight again.|||：请重新选择字重。|||: 굵기를 다시 선택하세요.
+{0}: {1}〜{2}の数値を入力してください。|||{0}: Enter a number from {1} to {2}.|||{0}：请输入 {1} 到 {2} 之间的数值。|||{0}: {1}~{2} 사이의 숫자를 입력하세요.
+0〜3000の数値を入力してください。|||Enter a number from 0 to 3000.|||请输入 0 到 3000 之间的数值。|||0~3000 사이의 숫자를 입력하세요.
+書き出す画像セット|||Image sets to export|||要导出的图片集|||내보낼 이미지 세트
+同じテキストを適用する背景を選択|||Select backgrounds for the same text|||选择应用相同文字的背景|||동일한 텍스트를 적용할 배경 선택
+PNG（劣化なし・sRGB）|||PNG (lossless, sRGB)|||PNG（无损，sRGB）|||PNG (무손실, sRGB)
+JPEG（品質100・sRGB）|||JPEG (quality 100, sRGB)|||JPEG（质量 100，sRGB）|||JPEG (품질 100, sRGB)
+出力先 / 言語 / セット名 / 元の名前.png（または.jpg）\n同名の出力は連番にします。JPEGの透明部分は白です。|||Output / text language / set name / original name.png (or .jpg)\nDuplicate names get a number suffix. JPEG transparency becomes white.|||输出目录 / 文字语言 / 图片集名称 / 原文件名.png（或 .jpg）\n同名文件会添加序号。JPEG 的透明区域为白色。|||출력 폴더 / 텍스트 언어 / 세트 이름 / 원래 이름.png (또는 .jpg)\n동일한 이름에는 번호가 붙습니다. JPEG의 투명 영역은 흰색입니다.
+次へ：書き出し先を選ぶ|||Next: choose output folder|||下一步：选择输出目录|||다음: 출력 폴더 선택
+1つ以上のセットを選択してください。|||Select at least one image set.|||请至少选择一个图片集。|||이미지 세트를 하나 이상 선택하세요.
+処理できませんでした|||Operation failed|||操作失败|||처리하지 못했습니다
+設定を読み込めないため初期値を使用します。\n|||Unable to load settings; using defaults.\n|||无法加载设置，将使用默认值。\n|||설정을 불러올 수 없어 기본값을 사용합니다.\n
+未保存のプロジェクト|||Unsaved project|||未保存的项目|||저장하지 않은 프로젝트
+変更を保存しますか？|||Save changes?|||是否保存更改？|||변경 내용을 저장할까요?
+未保存の変更|||Unsaved changes|||未保存的更改|||저장하지 않은 변경 사항
+画像セットのフォルダー（同じフォルダーを選ぶと再読み込み）|||Image set folder (select the same folder to reload)|||图片集文件夹（选择同一文件夹可重新加载）|||이미지 세트 폴더 (같은 폴더를 선택하면 다시 불러오기)
+画像セットの対応チェック|||Image set matching check|||图片集匹配检查|||이미지 세트 대응 확인
+全セットのファイル名・解像度が一致しています。|||Filenames and dimensions match in all sets.|||所有图片集的文件名和分辨率均匹配。|||모든 세트의 파일명과 해상도가 일치합니다.
+画像|*.jpg;*.jpeg;*.png;*.bmp;*.tif;*.tiff|||Images|*.jpg;*.jpeg;*.png;*.bmp;*.tif;*.tiff|||图片|*.jpg;*.jpeg;*.png;*.bmp;*.tif;*.tiff|||이미지|*.jpg;*.jpeg;*.png;*.bmp;*.tif;*.tiff
+元画像|||Original images|||原始图片|||원본 이미지
+同名ページと解像度が一致しません。|||Dimensions do not match the page with the same name.|||分辨率与同名页面不匹配。|||동일한 이름의 페이지와 해상도가 일치하지 않습니다.
+元画像と解像度が一致しません。|||Dimensions do not match the original image.|||分辨率与原图不匹配。|||원본 이미지와 해상도가 일치하지 않습니다.
+{0}枚を追加しました。|||Added {0} images.|||已添加 {0} 张图片。|||이미지 {0}개를 추가했습니다.
+読み込めなかった画像|||Images that could not be loaded|||无法加载的图片|||불러오지 못한 이미지
+このセットには {0} がありません。画像セットを追加／更新してください。|||This set does not contain {0}. Add or update the image set.|||此图片集中缺少 {0}。请添加或更新图片集。|||이 세트에 {0}이(가) 없습니다. 이미지 세트를 추가하거나 업데이트하세요.
+背景の解像度が一致しません。自動拡大縮小は行いません。|||Background dimensions do not match. Automatic resizing is disabled.|||背景分辨率不匹配。不会自动缩放。|||배경 해상도가 일치하지 않습니다. 자동으로 크기를 조절하지 않습니다.
+プレビューを読み込み中…|||Loading preview…|||正在加载预览…|||미리 보기 불러오는 중…
+画像を読み込めません。元画像の場所を確認してください。|||Cannot load the image. Check the original image location.|||无法加载图片。请检查原图位置。|||이미지를 불러올 수 없습니다. 원본 이미지 위치를 확인하세요.
+sRGBと仮定|||Assumed sRGB|||假定为 sRGB|||sRGB로 간주
+{0}   {1} × {2} px / {3} PPI / {4}   ／   {5}ページ|||{0}   {1} × {2} px / {3} PPI / {4}   /   {5} pages|||{0}   {1} × {2} px / {3} PPI / {4}   /   {5} 页|||{0}   {1} × {2} px / {3} PPI / {4}   /   {5}페이지
+{0}件のテキストを削除しました。|||Deleted {0} text blocks.|||已删除 {0} 个文字块。|||텍스트 블록 {0}개를 삭제했습니다.
+このページをレイアウトごとプロジェクトから除外しますか？元画像は削除しません。|||Remove this page and its layout from the project? The original image will remain.|||是否从项目中移除此页面及其排版？原图不会被删除。|||이 페이지와 배치를 프로젝트에서 제외할까요? 원본 이미지는 삭제하지 않습니다.
+ページ除外|||Remove page|||移除页面|||페이지 제외
+PanelTextor — 新規プロジェクト|||PanelTextor — New project|||PanelTextor — 新项目|||PanelTextor — 새 프로젝트
+PanelTextorプロジェクト|*.paneltextor.json;*.polytext.json|JSON|*.json|||PanelTextor project|*.paneltextor.json;*.polytext.json|JSON|*.json|||PanelTextor 项目|*.paneltextor.json;*.polytext.json|JSON|*.json|||PanelTextor 프로젝트|*.paneltextor.json;*.polytext.json|JSON|*.json
+PanelTextorプロジェクト|*.paneltextor.json|||PanelTextor project|*.paneltextor.json|||PanelTextor 项目|*.paneltextor.json|||PanelTextor 프로젝트|*.paneltextor.json
+元画像を指定: |||Locate original image: |||指定原图：|||원본 이미지 지정: 
+プロジェクトを保存しました。|||Project saved.|||项目已保存。|||프로젝트를 저장했습니다.
+全テキストにプリセット設定を反映しました。|||Presets applied to all text.|||预设已应用于所有文字。|||모든 텍스트에 프리셋을 적용했습니다.
+{0}版の書き出し先|||Output folder for {0}|||{0} 版本输出目录|||{0} 버전 출력 폴더
+不足・不一致の画像は除外されます。正常な {0} 件のみ書き出しますか？|||Missing or mismatched images will be skipped. Export the {0} valid images?|||将跳过缺失或不匹配的图片。是否仅导出 {0} 张有效图片？|||누락되거나 일치하지 않는 이미지는 제외합니다. 정상 이미지 {0}개만 내보낼까요?
+書き出し対象の確認|||Confirm export selection|||确认导出对象|||내보낼 항목 확인
+{0} / {1} 書き出し中… {2}/{3}|||Exporting {0} / {1}… {2}/{3}|||正在导出 {0} / {1}… {2}/{3}|||{0} / {1} 내보내는 중… {2}/{3}
+{0}/{1}画像を書き出しました（警告 {2} 件）: {3}|||Exported {0}/{1} images ({2} warnings): {3}|||已导出 {0}/{1} 张图片（{2} 条警告）：{3}|||이미지 {0}/{1}개 내보냄 (경고 {2}개): {3}
+書き出しエラー|||Export errors|||导出错误|||내보내기 오류
+表示言語を変更しました。本文の言語は変更されません。|||Interface language changed. Text language is unchanged.|||界面语言已更改，文字语言保持不变。|||화면 언어를 변경했습니다. 텍스트 언어는 유지됩니다.
+画像PPI: X={0}, Y={1}|||Image PPI: X={0}, Y={1}|||图片 PPI: X={0}, Y={1}|||이미지 PPI: X={0}, Y={1}
+入力ICC: {0} / 出力ICC: sRGB|||Input ICC: {0} / output ICC: sRGB|||输入 ICC: {0} / 输出 ICC: sRGB|||입력 ICC: {0} / 출력 ICC: sRGB
+あり → sRGBに変換|||Present → converted to sRGB|||存在 → 转换为 sRGB|||있음 → sRGB로 변환
+なし → sRGBと仮定|||None → assumed sRGB|||无 → 假定为 sRGB|||없음 → sRGB로 간주
+文字: {0} px = {1} pt（この画像のPPI・PostScript 72pt/inの場合）|||Text: {0} px = {1} pt (image PPI, PostScript 72pt/in)|||文字: {0} px = {1} pt（按图片 PPI、PostScript 72pt/in）|||텍스트: {0} px = {1} pt (이미지 PPI, PostScript 72pt/in 기준)
+フォント: {0}|||Font: {0}|||字体: {0}|||글꼴: {0}
+実際の書体: {0} / Weight={1} / Style={2}|||Actual font: {0} / Weight={1} / Style={2}|||实际字体: {0} / Weight={1} / Style={2}|||실제 글꼴: {0} / Weight={1} / Style={2}
+横の行送り: {0} / 縦の列送り: {1} em|||Horizontal line advance: {0} / vertical column advance: {1} em|||横排行距: {0} / 竖排列距: {1} em|||가로 줄 간격: {0} / 세로 열 간격: {1} em
+フォント既定|||Font default|||字体默认值|||글꼴 기본값
+追加字間: 0 / 縦の文字送り: 1 em|||Extra letter spacing: 0 / vertical character advance: 1 em|||附加字距: 0 / 竖排字距: 1 em|||추가 자간: 0 / 세로 글자 간격: 1 em
+縁取り: 外側 {0} px / {1}|||Outline: outside {0} px / {1}|||描边: 外侧 {0} px / {1}|||테두리: 바깥쪽 {0} px / {1}
+文字色: sRGB {0}|||Text color: sRGB {0}|||文字颜色: sRGB {0}|||글자 색상: sRGB {0}
+横組み: WPF（可変ウェイト指定時はHarfBuzz） / 縦組み: HarfBuzz。可変ウェイトの輪郭はHarfBuzz、描画はWPF。描画方式によって輪郭の見え方が異なります。|||Horizontal: WPF (HarfBuzz for variable weights). Vertical: HarfBuzz. Variable outlines: HarfBuzz; rendering: WPF. Outline appearance depends on the rendering method.|||横排：WPF（可变字重使用 HarfBuzz）。竖排：HarfBuzz。可变字重轮廓由 HarfBuzz 获取，WPF 渲染。轮廓外观因渲染方式而异。|||가로쓰기: WPF (가변 굵기는 HarfBuzz). 세로쓰기: HarfBuzz. 가변 윤곽: HarfBuzz, 렌더링: WPF. 렌더링 방식에 따라 윤곽 표시가 다릅니다.
+比較: 同じ実フォント・px指定・RGB/sRGB・拡大縮小100%・擬似太字OFF・字間0・縁取り外側。|||Compare with the same actual font, px size, RGB/sRGB, 100% zoom, faux bold off, zero tracking and outside outline.|||比较时请使用相同实际字体、px 尺寸、RGB/sRGB、100% 缩放、关闭伪粗体、字距 0、外侧描边。|||비교 조건: 동일한 실제 글꼴, px 크기, RGB/sRGB, 배율 100%, 가상 볼드 끄기, 자간 0, 바깥쪽 테두리.
+対応していないプロジェクト形式です。|||Unsupported project format.|||不支持的项目格式。|||지원하지 않는 프로젝트 형식입니다.
+同名のページが複数あるため対応付けできません。旧ページは維持されています。重複ページを整理してください。|||Duplicate page names prevent matching. Existing pages are preserved. Resolve duplicate names first.|||页面名称重复，无法匹配。原有页面已保留。请先整理重复页面。|||같은 이름의 페이지가 여러 개여서 대응할 수 없습니다. 기존 페이지는 유지됩니다. 중복 페이지를 정리하세요.
+フォルダー内に対応画像がありません。|||No supported images in this folder.|||此文件夹中没有支持的图片。|||폴더에 지원되는 이미지가 없습니다.
+: 不足 |||: Missing |||：缺少 |||: 누락 
+: 解像度不一致 |||: Dimension mismatch |||：分辨率不匹配 |||: 해상도 불일치 
+: 余分な画像 |||: Extra image |||：多余图片 |||: 추가 이미지 
+: フォルダーが見つかりません。|||: Folder not found.|||：找不到文件夹。|||: 폴더를 찾을 수 없습니다.
+撮影フレームを表示|||Show camera frame|||显示拍摄取景框|||촬영 프레임 표시
+経過時間:|||Elapsed time:|||已用时间：|||경과 시간:
+ページごとに保存。残量1は赤、2〜5は白。|||Saved per page. Level 1 is red; 2–5 are white.|||按页面保存。电量1为红色，2–5为白色。|||페이지별 저장. 잔량 1은 빨간색, 2–5는 흰색입니다.
+経過時間は mm:ss または hh:mm:ss で入力してください。|||Enter elapsed time as mm:ss or hh:mm:ss.|||请以 mm:ss 或 hh:mm:ss 输入已用时间。|||경과 시간을 mm:ss 또는 hh:mm:ss로 입력하세요.
+
+書き出す言語（複数選択可）|||Languages to export (multiple selection)|||导出语言（可多选）|||내보낼 언어 (복수 선택)
+1つ以上の言語を選択してください。|||Select at least one language.|||请至少选择一种语言。|||언어를 하나 이상 선택하세요.
+書き出し完了|||Export complete|||导出完成|||내보내기 완료
+書き出し終了（一部失敗）|||Export finished with errors|||导出结束（部分失败）|||내보내기 종료 (일부 실패)
+ライセンス|||Licenses|||许可证|||라이선스
+利用条件|||Terms of use|||使用条款|||이용 약관
+利用条件と第三者ライセンスの適用条件に同意します。|||I agree to the terms and applicable third-party license conditions.|||我同意使用条款及适用的第三方许可条件。|||이용 약관 및 적용되는 제3자 라이선스 조건에 동의합니다.
+同意して起動|||Agree and start|||同意并启动|||동의하고 시작
+同意せず終了|||Decline and exit|||不同意并退出|||동의하지 않고 종료
+第三者ライセンス原文|||Third-party license originals|||第三方许可原文|||제3자 라이선스 원문
+
+取り込み時の置換ルール|||Import replacement rules|||导入替换规则|||가져오기 치환 규칙
+言語ごと・全プロジェクト共通。追加時に上から順に文字列を置換します（大文字小文字を区別・部分一致・正規表現なし）。置換後の文字列も次のルールの対象です。置換後が空欄なら削除。既存テキストには適用しません。|||Per text language, shared across projects. Rules run top to bottom when adding text (case-sensitive literal substring matching, no regex). Later rules also process earlier replacements. An empty replacement deletes matches. Existing text is unchanged.|||按文字语言设置，所有项目共用。添加时从上到下替换（区分大小写、子串匹配、不用正则表达式）。后续规则也会处理已替换的文字。替换后为空则删除。不影响现有文字。|||텍스트 언어별로 설정하며 모든 프로젝트에 공통입니다. 추가 시 위에서 아래로 치환합니다(대소문자 구분, 부분 일치, 정규식 없음). 앞서 치환한 결과도 다음 규칙에 적용됩니다. 치환 후가 비어 있으면 삭제합니다. 기존 텍스트는 변경하지 않습니다.
+有効|||Enabled|||启用|||사용
+置換前|||Find|||替换前|||찾을 문자열
+置換後|||Replace with|||替换后|||바꿀 문자열
+選択ルールを削除|||Delete selected rules|||删除所选规则|||선택 규칙 삭제
+置換前を入力してください。|||Enter the text to find.|||请输入替换前的文字。|||찾을 문자열을 입력하세요.
+キャンセル|||Cancel|||取消|||취소
