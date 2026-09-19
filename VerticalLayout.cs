@@ -171,7 +171,15 @@ internal static class VerticalLayout
  public static IReadOnlyList<VerticalToken> Tokens(string text)
  {
   var elements = new List<string>(); var e = StringInfo.GetTextElementEnumerator(text);
-  while (e.MoveNext()) elements.Add(e.GetTextElement());
+  while (e.MoveNext())
+  {
+   var element = e.GetTextElement();
+   // Spacing dakuten are often used for expressive kana (あ゛). Attach only
+   // adjacent kana; whitespace, punctuation and leading marks stay independent.
+   if (element is "゛" or "゜" && elements.Count > 0 && IsKana(elements[^1]) && elements[^1].Length == 1)
+    elements[^1] = (elements[^1] + (element == "゛" ? "\u3099" : "\u309a")).Normalize(NormalizationForm.FormC);
+   else elements.Add(element.Normalize(NormalizationForm.FormC));
+  }
   var tokens = new List<VerticalToken>();
   for (int i = 0; i < elements.Count;)
   {
@@ -192,6 +200,7 @@ internal static class VerticalLayout
   }
   return tokens;
  }
+ private static bool IsKana(string text) => text[0] is >= '\u3041' and <= '\u3096' or >= '\u30a1' and <= '\u30fa';
  private static VerticalFont Font(GlyphTypeface glyph, double weight = 0, string language = "ja")
  {
   var key = glyph.FontUri + "|" + string.Join("/", glyph.FamilyNames.Values) + "|" + string.Join("/", glyph.FaceNames.Values) + "|" + weight.ToString(CultureInfo.InvariantCulture) + "|" + language;
@@ -284,6 +293,29 @@ internal static class VerticalLayout
     {
      double x = (lines.Length - 1 - column) * columns, y = row++ * size;
      if (string.IsNullOrWhiteSpace(token.Text)) continue;
+     // Standard voiced kana were composed above and use their native glyph.
+     // Nonstandard combinations have no reliable vertical mark anchors in many
+     // fonts. Anchor the spacing mark to the base's ink bounds, in the same cell.
+     if (IsKana(token.Text) && token.Text.Length == 2 && token.Text[1] is '\u3099' or '\u309a')
+     {
+      var basePath = Build(new TextObject { Text = token.Text[..1], Direction = "vertical", Size = obj.Size }, lang, config);
+      string mark = token.Text[1] == '\u3099' ? "゛" : "゜";
+      var markGlyph = GlyphFor(typeface, mark);
+      if (markGlyph is not null && !basePath.IsEmpty())
+      {
+       var markFont = Font(markGlyph, style.FontWeight);
+       var markPath = Outline(markFont, markFont.Shape(mark, false), size, false);
+       if (!markPath.IsEmpty())
+       {
+        var b = basePath.Bounds; var m = markPath.Bounds;
+        var attached = new GeometryGroup { FillRule = FillRule.Nonzero };
+        attached.Children.Add(basePath);
+        attached.Children.Add(new GeometryGroup { Children = { markPath }, Transform = new TranslateTransform(b.Right + size * .02 - m.Left, b.Top - m.Height * .35 - m.Top) });
+        result.Children.Add(new GeometryGroup { Children = { attached }, Transform = new TranslateTransform(x, y) });
+        continue;
+       }
+      }
+     }
      var glyph = GlyphFor(typeface, token.Text); if (glyph is null) continue;
      var font = Font(glyph, style.FontWeight); var shaped = font.Shape(token.Text, true);
      int scalar = token.Text.EnumerateRunes().First().Value; string orientation = VerticalOrientation.Of(scalar);
