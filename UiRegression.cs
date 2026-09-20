@@ -12,6 +12,14 @@ public partial class MainWindow
   project = fixture; config = new Config(); RefreshPages(0); await ShowPage(true);
   var obj = new TextObject { Text = "配置テスト", X = 60, Y = 65 }; Layer!.Objects.Add(obj); RefreshBlocks(); RenderObjects(); Select(obj);
   var before = (obj.X, obj.Y, obj.Size, obj.Color);
+  check(ColorButtons.Children.Count == 10 && ColorButtons.Columns == 5, "Palette shows ten colors in two rows");
+  foreach (var key in Config.ColorKeys)
+  {
+   var button = ColorButtons.Children.OfType<Button>().Single(b => (string)b.Tag == key);
+   button.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+   check(obj.Color == key && button.BorderThickness.Left == 4, "Color button selects and highlights " + key);
+  }
+  obj.Color = before.Color; RenderObjects(); Select(obj);
   BackgroundSets.SelectedItem = project.ImageSets[1]; await ShowPage(false);
   check(project.ActiveSetId == project.ImageSets[1].Id && (obj.X, obj.Y, obj.Size, obj.Color) == before && visuals.Any(v => v.Object == obj), "UI background selector retains text object and position");
   SelectedInput.Text = "編集した文字";
@@ -22,6 +30,14 @@ public partial class MainWindow
   check(obj.LineAdvancePx == 100, "UI leading plus button updates px");
   SpacingReset_Click(new Button(), new RoutedEventArgs());
   check(obj.LineAdvancePx == 0, "UI leading default button restores global setting");
+  RotationInput.Text = "32.5";
+  check(obj.RotationDegrees == 32.5 && RotationSlider.Value == 32.5, "Rotation angle input updates canvas and slider");
+  RotationInput.Text = "NaN";
+  check(obj.RotationDegrees == 32.5 && RotationInput.ToolTip is not null, "Invalid rotation preserves previous angle");
+  RotationSlider.Value = -46.2;
+  check(obj.RotationDegrees == -46.2 && RotationInput.Text == "-46.2", "Rotation slider updates angle immediately");
+  RotationResetButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+  check(obj.RotationDegrees == 0 && RotationSlider.Value == 0, "Rotation reset restores original orientation");
   LargeButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
   check(obj.Size == "large", "UI size preset click works after background switch");
   VerticalButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));

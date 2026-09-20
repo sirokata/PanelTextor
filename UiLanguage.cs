@@ -29,6 +29,8 @@ internal static class UiLanguage
  public static IEnumerable<string[]> Entries => translations.Values;
  public static readonly Dictionary<string, string> XamlSources = new()
  {
+  ["RotationTitle"] = "回転（度）",
+  ["RotationHint"] = "文字の中心を軸に回転。正の値は時計回り。",
   ["ReplacementTitle"] = "取り込み時の置換ルール",
   ["LicensesTitle"] = "ライセンス",
   ["CameraFrameTitle"] = "撮影フレームを表示",

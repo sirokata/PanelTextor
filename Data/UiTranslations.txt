@@ -157,3 +157,6 @@ PanelTextorプロジェクト|*.paneltextor.json|||PanelTextor project|*.panelte
 選択ルールを削除|||Delete selected rules|||删除所选规则|||선택 규칙 삭제
 置換前を入力してください。|||Enter the text to find.|||请输入替换前的文字。|||찾을 문자열을 입력하세요.
 キャンセル|||Cancel|||取消|||취소
+回転（度）|||Rotation (degrees)|||旋转（度）|||회전(도)
+文字の中心を軸に回転。正の値は時計回り。|||Rotate around the text center. Positive values rotate clockwise.|||以文字中心为轴旋转。正值为顺时针。|||텍스트 중심을 기준으로 회전합니다. 양수는 시계 방향입니다.
+−180〜180の数値を入力してください。|||Enter a number from −180 to 180.|||请输入 −180 到 180 之间的数值。|||−180에서 180 사이의 숫자를 입력하세요.

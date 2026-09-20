@@ -41,6 +41,11 @@ public static class TextRenderer
    if (style.OutlineWidth > 0) dc.DrawGeometry(null, new Pen(Brush(style.OutlineColor), style.OutlineWidth * 2) { LineJoin = PenLineJoin.Round }, geometry);
    dc.DrawGeometry(Brush(config.Colors[obj.Color]), null, geometry);
   }
+  if (!result.Bounds.IsEmpty && double.IsFinite(obj.RotationDegrees) && obj.RotationDegrees != 0)
+  {
+   var bounds = result.Bounds;
+   result.Transform = new RotateTransform(obj.RotationDegrees, bounds.X + bounds.Width / 2, bounds.Y + bounds.Height / 2);
+  }
   result.Freeze(); return result;
  }
  public static BitmapSource Load(string path, int decode = 0)
@@ -74,16 +79,26 @@ public class TextVisual : FrameworkElement
 {
  public TextObject Object { get; }
  private readonly DrawingGroup drawing;
+ private readonly Rect unrotatedBounds;
  public Rect TextBounds { get; }
  public bool Selected { get; set; }
  public TextVisual(TextObject obj, string lang, Config config)
  {
   Object = obj; drawing = TextRenderer.Drawing(obj, lang, config); TextBounds = drawing.Bounds.IsEmpty ? new Rect(0, 0, 20, 30) : drawing.Bounds;
+  var bounds = Rect.Empty; foreach (var child in drawing.Children) bounds.Union(child.Bounds);
+  unrotatedBounds = bounds.IsEmpty ? new Rect(0, 0, 20, 30) : bounds;
   Width = Math.Max(1, TextBounds.Right + 8); Height = Math.Max(1, TextBounds.Bottom + 8); IsHitTestVisible = false;
  }
  protected override void OnRender(DrawingContext dc)
  {
-  dc.DrawDrawing(drawing); if (Selected) { var r = TextBounds; r.Inflate(5, 5); dc.DrawRectangle(null, new Pen(Brushes.DeepSkyBlue, 2), r); }
+  dc.DrawDrawing(drawing); if (Selected) { dc.PushTransform(drawing.Transform ?? Transform.Identity); var r = unrotatedBounds; r.Inflate(5, 5); dc.DrawRectangle(null, new Pen(Brushes.DeepSkyBlue, 2), r); dc.Pop(); }
+ }
+ public bool Contains(Point point, double padding)
+ {
+  point.Offset(-Object.X, -Object.Y);
+  if (drawing.Transform?.Inverse is { } inverse) point = inverse.Transform(point);
+  var bounds = unrotatedBounds; bounds.Inflate(padding, padding); return bounds.Contains(point);
  }
 }
+
 

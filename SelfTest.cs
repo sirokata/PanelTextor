@@ -49,6 +49,11 @@ internal static class SelfTest
    localizedTerms.Close();
   }
   UiLanguage.Set("JP");
+  var oldPalette = System.Text.Json.JsonSerializer.Deserialize<Config>("{\"Colors\":{\"color1\":\"#123456\",\"color2\":\"#234567\",\"color3\":\"#345678\",\"color4\":\"#456789\"}}")!;
+  Check(oldPalette.Colors.Count == 10 && oldPalette.Colors["color1"] == "#123456" && oldPalette.Colors["color4"] == "#456789", "Four-color settings gain six colors without overwriting customized colors");
+  oldPalette.Colors["color10"] = "#ABCDEF";
+  var paletteFile = Path.Combine(folder, "ten-color-settings.json"); Storage.Write(paletteFile, oldPalette);
+  Check(Storage.Read<Config>(paletteFile).Colors["color10"] == "#ABCDEF", "Additional palette colors persist after settings reload");
   var replacementConfig = new Config();
   replacementConfig.Styles["JP"].ImportReplacements = [new() { Find = "猫", ReplaceWith = "ねこ" }, new() { Find = "削除", ReplaceWith = "" }, new() { Find = "!", ReplaceWith = "?", Enabled = false }];
   Check(TextReplacements.Apply(" 猫!削除\n猫 ", replacementConfig.Styles["JP"]) == " ねこ!\nねこ ", "Import replacement preserves whitespace, replaces all matches and supports deletion/disabled rules");
@@ -60,6 +65,7 @@ internal static class SelfTest
   VerticalTests.Run(folder, Check);
   WhitespaceTests.Run(folder, Check);
   SpacingTests.Run(folder, Check);
+  RotationTests.Run(folder, Check);
   var parts = Storage.Split("今日は遅かったね\r\n \r\nごめん\r\n仕事が長引いちゃって\r\n\r\n\r\nじゃあ帰ろうか");
   Check(parts.Length == 3 && parts[1] == "ごめん\n仕事が長引いちゃって", "Blank-line split preserves intra-block line breaks");
   Check(Storage.Split(" \n \n").Length == 0, "Empty input creates no objects");
@@ -70,6 +76,15 @@ internal static class SelfTest
   var originalHash = SHA256.HashData(File.ReadAllBytes(source));
   CameraFrameTests.Run(folder, Check);
   var page = new Page { Source = source, Width = 1200, Height = 900 };
+  var colorPage = new Page { Source = source, Width = 1200, Height = 900 };
+  foreach (var key in Config.ColorKeys)
+   colorPage.Layers["EN"].Objects.Add(new TextObject { Text = key, Color = key, X = 100, Y = 35 + 75 * colorPage.Layers["EN"].Objects.Count });
+  var colorProject = new Project { Pages = [colorPage] }; Storage.Validate(colorProject);
+  var colorProjectFile = Path.Combine(folder, "ten-color-project.paneltextor.json"); Storage.Write(colorProjectFile, colorProject);
+  var loadedColorProject = Storage.Read<Project>(colorProjectFile); Storage.Validate(loadedColorProject);
+  Check(loadedColorProject.Pages[0].Layers["EN"].Objects.Select(o => o.Color).SequenceEqual(Config.ColorKeys), "All ten text colors survive project save and validation");
+  var colorOutput = Path.Combine(folder, "ten-color-export.png"); TextRenderer.Export(colorPage, "EN", oldPalette, colorOutput);
+  Check(File.Exists(colorOutput), "All ten colors export successfully");
   var samples = new Dictionary<string, string> { ["JP"] = "「今日は、いい天気。」\nコーヒーを飲もう！", ["EN"] = "Hello, world!\nLet's go home.", ["ZH"] = "今天辛苦了。\n我们回家吧！", ["KO"] = "오늘도 수고했어요.\n이제 집에 가요!" };
   foreach (var lang in Config.Languages) page.Layers[lang].Objects.Add(new TextObject { Text = samples[lang], X = 160, Y = 130, Direction = lang == "JP" ? "vertical" : "horizontal", Color = "color2" });
   page.Layers["JP"].Objects[0].X = 720;

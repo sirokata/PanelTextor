@@ -20,14 +20,17 @@
     <TextBlock Text="{DynamicResource Ui23}" FontWeight="Bold" FontSize="16"/><TextBlock Text="{DynamicResource Ui24}" Foreground="#666666" Margin="3,6"/><TextBox x:Name="BulkInput" Height="205" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" TextChanged="Bulk_Changed"/><Button Content="{DynamicResource Ui25}" Click="AddBlocks_Click"/><Button Content="{DynamicResource ReplacementTitle}" Click="Replacement_Click"/><TextBlock Text="{DynamicResource Ui26}" Foreground="#666666" Margin="3,6"/>
     <Separator Margin="0,12"/><TextBlock x:Name="SelectionLabel" Text="{DynamicResource Ui27}" FontWeight="Bold" FontSize="16"/><TextBox x:Name="SelectedInput" Height="115" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" TextChanged="Selected_Changed" IsEnabled="False"/>
     <TextBlock Text="{DynamicResource Ui28}" Margin="3,10,3,3"/><UniformGrid Columns="3"><Button x:Name="SmallButton" Content="{DynamicResource Ui29}" Tag="small" Click="Size_Click"/><Button x:Name="MediumButton" Content="{DynamicResource Ui30}" Tag="medium" Click="Size_Click"/><Button x:Name="LargeButton" Content="{DynamicResource Ui31}" Tag="large" Click="Size_Click"/></UniformGrid>
-    <TextBlock Text="{DynamicResource Ui32}" Margin="3,10,3,3"/><UniformGrid x:Name="ColorButtons" Columns="4"/>
+    <TextBlock Text="{DynamicResource Ui32}" Margin="3,10,3,3"/><UniformGrid x:Name="ColorButtons" Columns="5"/>
     <TextBlock Text="{DynamicResource Ui33}" Margin="3,10,3,3"/><UniformGrid Columns="2"><Button x:Name="VerticalButton" Content="{DynamicResource Ui34}" Tag="vertical" Click="Direction_Click"/><Button x:Name="HorizontalButton" Content="{DynamicResource Ui35}" Tag="horizontal" Click="Direction_Click"/></UniformGrid><Button x:Name="DeleteButton" Content="{DynamicResource Ui36}" Click="Delete_Click" Margin="3,15"/>
+    <TextBlock Text="{DynamicResource RotationTitle}" FontWeight="Bold"/><Slider x:Name="RotationSlider" Minimum="-180" Maximum="180" ValueChanged="RotationSlider_Changed" IsEnabled="False" Margin="6"/><StackPanel Orientation="Horizontal"><TextBox x:Name="RotationInput" Text="0" Width="90" TextChanged="Rotation_Changed" IsEnabled="False"/><Button x:Name="RotationResetButton" Content="{DynamicResource Ui38}" Click="RotationReset_Click" IsEnabled="False"/></StackPanel><TextBlock Text="{DynamicResource RotationHint}" TextWrapping="Wrap" Foreground="#666666" Margin="3,3,3,12"/>
     <TextBlock Text="{DynamicResource Ui37}" FontWeight="Bold"/><StackPanel Orientation="Horizontal"><Button Content="−" Tag="-4" Click="SpacingStep_Click"/><TextBox x:Name="SpacingInput" Width="90" Text="0" TextChanged="Spacing_Changed" IsEnabled="False"/><Button Content="＋" Tag="4" Click="SpacingStep_Click"/><Button Content="{DynamicResource Ui38}" Click="SpacingReset_Click"/></StackPanel><TextBlock x:Name="SpacingHint" Text="{DynamicResource Ui39}" TextWrapping="Wrap" Foreground="#666666" Margin="3,3,3,12"/>
     <TextBlock Text="{DynamicResource Ui40}" FontWeight="Bold"/><ListBox x:Name="BlocksList" SelectionMode="Extended" DisplayMemberPath="Label" SelectionChanged="Block_Changed" Height="150" Margin="3,8"/><TextBlock Text="{DynamicResource Ui41}" TextWrapping="Wrap" Foreground="#666666" Margin="3,10"/>
    </StackPanel></ScrollViewer>
   </Grid>
  </DockPanel>
 </Window>
+
+
 
 
 

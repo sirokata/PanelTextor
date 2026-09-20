@@ -9,6 +9,7 @@ public class TextObject
  public string Text { get; set; } = "";
  public double X { get; set; }
  public double Y { get; set; }
+ public double RotationDegrees { get; set; }
  public string Size { get; set; } = "medium";
  public string Color { get; set; } = "color1";
  public string Direction { get; set; } = "horizontal";
@@ -51,8 +52,10 @@ public class LanguageStyle
  public string OutlineColor { get; set; } = "#FFFFFF";
  public double OutlineWidth { get; set; } = 5;
 }
-public class Config
+public class Config : System.Text.Json.Serialization.IJsonOnDeserialized
 {
+ public static readonly string[] ColorKeys = Enumerable.Range(1, 10).Select(i => "color" + i).ToArray();
+ private static Dictionary<string, string> DefaultColors() => ColorKeys.Zip(new[] { "#000000", "#E53935", "#1976D2", "#8E24AA", "#FFFFFF", "#43A047", "#FDD835", "#FB8C00", "#EC407A", "#00ACC1" }).ToDictionary(p => p.First, p => p.Second);
  public string UiLanguage { get; set; } = "JP";
  public static readonly string[] Languages = ["JP", "EN", "ZH", "KO"];
  public Dictionary<string, LanguageStyle> Styles { get; set; } = new()
@@ -61,7 +64,12 @@ public class Config
   ["ZH"] = new() { Font = "Microsoft YaHei", Sizes = new() { ["small"] = 30, ["medium"] = 38, ["large"] = 46 } },
   ["KO"] = new() { Font = "Malgun Gothic", Sizes = new() { ["small"] = 28, ["medium"] = 36, ["large"] = 44 } }
  };
- public Dictionary<string, string> Colors { get; set; } = new() { ["color1"] = "#000000", ["color2"] = "#E53935", ["color3"] = "#1976D2", ["color4"] = "#8E24AA" };
+ public Dictionary<string, string> Colors { get; set; } = DefaultColors();
+ void System.Text.Json.Serialization.IJsonOnDeserialized.OnDeserialized()
+ {
+  Colors ??= new();
+  foreach (var pair in DefaultColors()) Colors.TryAdd(pair.Key, pair.Value);
+ }
 }
 public static class Storage
 {
@@ -117,9 +125,11 @@ public static class Storage
    {
     if (!page.Layers.ContainsKey(lang)) page.Layers[lang] = new();
     foreach (var o in page.Layers[lang].Objects)
-     if (!new[] { "small", "medium", "large" }.Contains(o.Size) || !new[] { "color1", "color2", "color3", "color4" }.Contains(o.Color) || !new[] { "vertical", "horizontal" }.Contains(o.Direction) || !double.IsFinite(o.X) || !double.IsFinite(o.Y) || !double.IsFinite(o.LineAdvancePx) || o.LineAdvancePx < 0 || o.LineAdvancePx > 3000) throw new InvalidDataException("テキスト情報が不正です。");
+     if (!new[] { "small", "medium", "large" }.Contains(o.Size) || !Config.ColorKeys.Contains(o.Color) || !new[] { "vertical", "horizontal" }.Contains(o.Direction) || !double.IsFinite(o.X) || !double.IsFinite(o.Y) || !double.IsFinite(o.RotationDegrees) || o.RotationDegrees < -180 || o.RotationDegrees > 180 || !double.IsFinite(o.LineAdvancePx) || o.LineAdvancePx < 0 || o.LineAdvancePx > 3000) throw new InvalidDataException("テキスト情報が不正です。");
    }
   }
  }
 }
+
+
 

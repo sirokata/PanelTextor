@@ -65,3 +65,9 @@ Sizes are image pixels. Monitor-profile compensation and antialiasing specific t
 Open **Import replacement rules** below **Split and add**. Select JP/EN/CN/KR, enter Find and Replace with in the bottom row, then save. Uncheck Enabled to disable a rule or use Delete selected rules to remove it. Cancel discards changes.
 
 Rules are saved per text language in application settings and shared across projects. They run top to bottom before blank-line splitting when adding new text. Matching is literal, case-sensitive and includes substrings; regex is not used. Later rules process earlier replacement results. Empty replacement deletes matches; an empty Find cannot be registered. For example, an EN rule “colour → color” only changes newly imported EN text. Existing blocks and individual editing are unaffected.
+
+## Text rotation
+
+Select one text object and use the Rotation (degrees) slider or number field. Angles from −180 to 180, including decimals, cover every direction; positive values rotate clockwise. Default resets to 0. Text and outline rotate together around their center and remain draggable. Angles are saved per text object and language, shared across background sets, and applied to exports.
+
+Choose from 10 text colors in two rows of five. Edit each HEX value in preset settings. Existing four-color settings are preserved, with six additional colors added automatically.

@@ -270,6 +270,12 @@ public partial class MainWindow : Window
   foreach (var item in selection) if (BlocksList.Items.Contains(item) && !BlocksList.SelectedItems.Contains(item)) BlocksList.SelectedItems.Add(item); syncing = false;
   syncing = true; SpacingInput.IsEnabled = obj is not null; SpacingInput.Text = (obj?.LineAdvancePx ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture); syncing = false;
   SpacingInput.ClearValue(Control.BorderBrushProperty); SpacingInput.ToolTip = null;
+  syncing = true;
+  RotationInput.IsEnabled = RotationSlider.IsEnabled = RotationResetButton.IsEnabled = obj is not null;
+  RotationInput.Text = (obj?.RotationDegrees ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture);
+  RotationSlider.Value = obj?.RotationDegrees ?? 0;
+  RotationInput.ClearValue(Control.BorderBrushProperty); RotationInput.ToolTip = null;
+  syncing = false;
   SpacingHint.Text = obj?.Direction == "vertical" ? UiLanguage.T("縦書き：列と列の間隔。0＝言語設定。1列だけでは変化しません。") : UiLanguage.T("横書き：行頭から次の行頭までの距離。0＝言語設定。1行だけでは変化しません。");
   SelectionLabel.Text = selection.Count > 1 ? UiLanguage.F("{0}件を選択中", selection.Count) : obj is null ? UiLanguage.T("テキストを選択") : UiLanguage.T("選択中のテキスト");
   DeleteButton.IsEnabled = selection.Count > 0;
@@ -281,7 +287,7 @@ public partial class MainWindow : Window
  }
  private void BuildColors()
  {
-  ColorButtons.Children.Clear(); foreach (var pair in config.Colors)
+  ColorButtons.Children.Clear(); foreach (var pair in Config.ColorKeys.Select(key => new KeyValuePair<string, string>(key, config.Colors[key])))
   {
    var button = new Button { Tag = pair.Key, Background = TextRenderer.Brush(pair.Value), Height = 34, ToolTip = pair.Key + " " + pair.Value };
    button.Click += (_, _) => { if (selected is null) return; selected.Color = (string)button.Tag; Changed(); RenderObjects(); Select(selected); }; ColorButtons.Children.Add(button);
@@ -331,6 +337,22 @@ public partial class MainWindow : Window
   SpacingInput.Text = Math.Clamp(Math.Round(current, 2) + double.Parse((string)((Button)sender).Tag, System.Globalization.CultureInfo.InvariantCulture), 1, 3000).ToString(System.Globalization.CultureInfo.InvariantCulture);
  }
  private void SpacingReset_Click(object sender, RoutedEventArgs e) { if (selected is not null) SpacingInput.Text = "0"; }
+ private void Rotation_Changed(object sender, TextChangedEventArgs e)
+ {
+  if (syncing || selected is null) return;
+  if (!double.TryParse(RotationInput.Text, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out var angle) || !double.IsFinite(angle) || angle < -180 || angle > 180)
+  { RotationInput.BorderBrush = Brushes.Red; RotationInput.ToolTip = UiLanguage.T("−180〜180の数値を入力してください。"); return; }
+  RotationInput.ClearValue(Control.BorderBrushProperty); RotationInput.ToolTip = null;
+  selected.RotationDegrees = angle;
+  syncing = true; RotationSlider.Value = angle; syncing = false;
+  Changed(); RenderObjects();
+ }
+ private void RotationSlider_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
+ {
+  if (syncing || selected is null) return;
+  RotationInput.Text = Math.Round(e.NewValue, 1).ToString(System.Globalization.CultureInfo.InvariantCulture);
+ }
+ private void RotationReset_Click(object sender, RoutedEventArgs e) { if (selected is not null) RotationInput.Text = "0"; }
  private void Delete_Click(object sender, RoutedEventArgs e)
  {
   if (Layer is null || selection.Count == 0) return;
@@ -354,7 +376,7 @@ public partial class MainWindow : Window
  private void Canvas_Down(object sender, MouseButtonEventArgs e)
  {
   var point = e.GetPosition(Surface);
-  var hit = visuals.LastOrDefault(v => { var r = v.TextBounds; r.Offset(v.Object.X, v.Object.Y); r.Inflate(8 / zoom, 8 / zoom); return r.Contains(point); });
+  var hit = visuals.LastOrDefault(v => v.Contains(point, 8 / zoom));
   Surface.Focus();
   if ((Keyboard.Modifiers & ModifierKeys.Control) != 0 && hit is not null)
   {
@@ -472,6 +494,7 @@ public partial class MainWindow : Window
   thread.SetApartmentState(ApartmentState.STA); thread.Start(); return source.Task;
  }
 }
+
 
 
 
